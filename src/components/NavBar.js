@@ -58,3 +58,7 @@ class NavBar extends React.Component {
 }
 
 export default NavBar
+
+
+// onClick={this.redirect('/profile')}
+// active={this.state.active === '/profile'}

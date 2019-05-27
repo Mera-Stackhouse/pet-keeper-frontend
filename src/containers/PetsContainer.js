@@ -16,24 +16,24 @@ class PetsContainer extends React.Component {
       pets: []
     }
 
-    fetch(URL)
-    .then(resp => resp.json())
-    .then(data => {
-      this.setState({
-        pets: data.pets
-      })
-    })
+    // fetch(URL)
+    // .then(resp => resp.json())
+    // .then(data => {
+    //   this.setState({
+    //     pets: data.pets
+    //   })
+    // })
   }
 
-  renderPets = () => {
-    this.props.pets.map( p => <Pet key={p.id} pet={p} />)
-  }
+  // renderPets = () => {
+  //   this.props.pets.map( p => <Pet key={p.id} pet={p} />)
+  // }
 
   render() {
     return (
     <div>
       <Card.Group>
-        {this.renderPets()}
+
       </Card.Group>
     </div>
     )
@@ -41,3 +41,6 @@ class PetsContainer extends React.Component {
 }
 
 export default PetsContainer
+
+
+// {this.renderPets()}
