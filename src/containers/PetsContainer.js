@@ -87,6 +87,7 @@ class PetsContainer extends React.Component {
 
 
   handleDelete = (petId) => {
+    console.log('here')
     fetch(PET_URL + "/" + petId, {
       method: 'DELETE',
       headers: {

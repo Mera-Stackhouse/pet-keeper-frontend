@@ -1,5 +1,5 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink, Redirect } from 'react-router-dom'
 import 'semantic-ui-css/semantic.min.css'
 import { Menu, Input } from 'semantic-ui-react'
 
@@ -13,6 +13,11 @@ class NavBar extends React.Component {
     this.setState({
       active: path
     })
+  }
+
+  handleItemClick = () => {
+    localStorage.clear()
+    return <Redirect to='/login' />
   }
 
   render() {
@@ -40,14 +45,15 @@ class NavBar extends React.Component {
         <Menu.Menu position='right'>
           <Menu.Item>
             <Input
-              icon={{ name: 'search', link: true, color: 'violet' }}
+              icon={{ name: 'search', link: true }}
               placeholder='Search...'
               transparent
             />
           </Menu.Item>
           <Menu.Item
             name='logout'
-            
+            as={ NavLink }
+            to='/login'
             onClick={this.handleItemClick}
           />
         </Menu.Menu>

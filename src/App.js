@@ -10,7 +10,7 @@ function App() {
   return (
     <Router>
       <React.Fragment>
-        <Route exact path="/" render={() => <Redirect to='/login'/>} />
+        
         <Route path="/login" component={LandingPage} />
       </React.Fragment>
     </Router>
