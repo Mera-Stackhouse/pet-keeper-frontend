@@ -16,6 +16,8 @@ class Pet extends React.Component {
 
   // Age
 
+
+
   render() {
     return (
       <Card>
@@ -36,7 +38,7 @@ class Pet extends React.Component {
             <Button basic color='yellow' disabled>
               Edit
             </Button>
-            <Button basic color='red' disabled>
+            <Button basic color='red' onClick={() => this.props.handleDelete(this.props.pet.id)}>
               Delete
             </Button>
            </div>
