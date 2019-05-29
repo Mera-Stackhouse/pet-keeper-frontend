@@ -46,9 +46,9 @@ class NavBar extends React.Component {
             />
           </Menu.Item>
           <Menu.Item
-            name="logout"
-            as={ NavLink }
-            to='/logout'
+            name='logout'
+            
+            onClick={this.handleItemClick}
           />
         </Menu.Menu>
       </Menu>

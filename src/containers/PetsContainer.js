@@ -5,7 +5,7 @@ import Pet from '../components/Pet'
 import 'semantic-ui-css/semantic.min.css'
 import { Card } from 'semantic-ui-react'
 
-const URL = ''
+const URL = 'http://localhost:3000/api/v1/profile'
 
 
 class PetsContainer extends React.Component {
@@ -16,26 +16,31 @@ class PetsContainer extends React.Component {
       pets: []
     }
 
-    // fetch(URL)
-    // .then(resp => resp.json())
-    // .then(data => {
-    //   this.setState({
-    //     pets: data.pets
-    //   })
-    // })
+    fetch(URL, {
+      method: 'GET',
+      headers: {
+        'Authorization': `Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyfQ.TIADUXTXQwKAAgk1QpPx7k5Y8LHmAQnJo6GDRvug6AI`
+      }
+    })
+    .then(resp => resp.json())
+    .then(data => {
+      this.setState({
+        pets: data.user.pets
+      }, () => console.log(this.state.pets))
+    })
   }
 
-  // renderPets = () => {
-  //   this.props.pets.map( p => <Pet key={p.id} pet={p} />)
-  // }
+  renderPets = () => {
+    return this.state.pets.map( p => <Pet key={p.id} pet={p} />)
+  }
 
   render() {
     return (
-    <div>
-      <Card.Group>
-
-      </Card.Group>
-    </div>
+      <div>
+        <Card.Group>
+          {this.renderPets()}
+        </Card.Group>
+      </div>
     )
   }
 }
