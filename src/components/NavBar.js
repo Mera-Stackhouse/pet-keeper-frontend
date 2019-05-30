@@ -44,13 +44,6 @@ class NavBar extends React.Component {
           active={false}
         />
         <Menu.Menu position='right'>
-          <Menu.Item>
-            <Input
-              icon={{ name: 'search', link: true }}
-              placeholder='Search...'
-              transparent
-            />
-          </Menu.Item>
           <Menu.Item
             name='logout'
             onClick={this.handleLogout}

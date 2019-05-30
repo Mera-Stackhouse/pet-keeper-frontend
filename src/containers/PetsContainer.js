@@ -107,6 +107,7 @@ class PetsContainer extends React.Component {
   render() {
     return (
       <div>
+        <br/>
         <Card.Group>
           {this.renderPets()}
         </Card.Group>

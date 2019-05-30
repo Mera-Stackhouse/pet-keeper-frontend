@@ -8,6 +8,7 @@ import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
 
 function App() {
   return (
+    <div className='main'>
     <Router>
       <React.Fragment>
         <Route path="/login" component={LandingPage} />
@@ -17,6 +18,7 @@ function App() {
         <Route path="/vets" render={() => <Redirect to='/login'/>} />
       </React.Fragment>
     </Router>
+    </div>
   )
 }
 

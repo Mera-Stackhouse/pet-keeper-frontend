@@ -1,6 +1,6 @@
 import React from 'react'
 import 'semantic-ui-css/semantic.min.css'
-import { Button, Form } from 'semantic-ui-react'
+import { Button, Form, Image } from 'semantic-ui-react'
 
 const PROFILE_URL = 'http://localhost:3000/api/v1/profile'
 const USER_URL = 'http://localhost:3000/api/v1/users/'
@@ -75,9 +75,9 @@ class Profile extends React.Component {
     return (
 
         <div class="ui items">
-          <div class="item">
-            <div class="image">
-              <img src={this.state.user.avatar_url} alt="user avatar"/>
+          <div class="item centered">
+            <div class='main'>
+              <Image  size='small' src={this.state.user.avatar_url} alt="user avatar"/>
             </div>
             <div class="content">
               <div class="header">{this.state.user.username}</div>
