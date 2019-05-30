@@ -1,8 +1,13 @@
 import React from 'react'
 import 'semantic-ui-css/semantic.min.css'
-import { Card, Image, Button } from 'semantic-ui-react'
+import { Card, Image, Button, Form } from 'semantic-ui-react'
 
 class Pet extends React.Component {
+
+  state = {
+    showEditForm: false,
+    showMoreInfo: false
+  }
 
   // birthday = () => {
   //   console.log(this.props.pet.birthdate)
@@ -16,6 +21,13 @@ class Pet extends React.Component {
 
   // Age
 
+  toggleShowMore = () => {
+    const newState = !this.state.showMoreInfo
+    this.setState({
+      showMoreInfo: newState
+    })
+  }
+
 
 
   render() {
@@ -26,14 +38,28 @@ class Pet extends React.Component {
             <br/>
             <br/>
             <Card.Header>{this.props.pet.name}</Card.Header>
-            <Card.Meta>{this.props.pet.species}: {this.props.pet.breed}</Card.Meta>
+            <Card.Meta>{this.props.pet.species}</Card.Meta>
             <Card.Description>
+              {this.state.showMoreInfo ?
+              <div>
+                <p>{this.props.pet.breed}</p>
+                <p>{this.props.pet.gender}</p>
+                <p>Birthday: {this.props.pet.birthdate}</p>
+                <p>Food:</p>
+                <p>Habits:</p>
+                <p>Medications:</p>
+              </div>
+              : null}
+              {this.state.showEditForm ?
+              <Form>
+              </Form>
+              : null}
             </Card.Description>
         </Card.Content>
         <Card.Content extra>
           <div className='ui three buttons'>
-            <Button basic color='blue' disabled>
-              See More
+            <Button basic color='blue' onClick={this.toggleShowMore}>
+              {this.state.showMoreInfo ? 'See Less' : 'See More'}
             </Button>
             <Button basic color='yellow' disabled>
               Edit

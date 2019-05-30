@@ -9,9 +9,12 @@ import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
 function App() {
   return (
     <Router>
-      <React.Fragment>  
+      <React.Fragment>
         <Route path="/login" component={LandingPage} />
         <Route exact path="/" render={() => <Redirect to='/login'/>} />
+        <Route path="/profile" render={() => <Redirect to='/login'/>} />
+        <Route path="/pets" render={() => <Redirect to='/login'/>} />
+        <Route path="/vets" render={() => <Redirect to='/login'/>} />
       </React.Fragment>
     </Router>
   )

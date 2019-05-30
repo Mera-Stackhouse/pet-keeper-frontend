@@ -55,7 +55,6 @@ class LandingPage extends React.Component {
     this.setState({
       isLoggedIn: false
     })
-    return <Redirect to='/login' />
   }
 
 
