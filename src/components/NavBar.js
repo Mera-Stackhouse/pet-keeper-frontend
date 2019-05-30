@@ -15,9 +15,11 @@ class NavBar extends React.Component {
     })
   }
 
-  handleItemClick = () => {
-    localStorage.clear()
-    return <Redirect to='/login' />
+  handleLogout = () => {
+
+    console.log('logout')
+    // localStorage.clear()
+
   }
 
   render() {
@@ -52,9 +54,7 @@ class NavBar extends React.Component {
           </Menu.Item>
           <Menu.Item
             name='logout'
-            as={ NavLink }
-            to='/login'
-            onClick={this.handleItemClick}
+            onClick={this.handleLogout}
           />
         </Menu.Menu>
       </Menu>

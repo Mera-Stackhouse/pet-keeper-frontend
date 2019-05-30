@@ -70,3 +70,5 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
 
 
 https://www.iconfinder.com/icons/1187023/dog_paw_pawprint_print_track_tracking_watchkit_icon
+https://stackoverflow.com/questions/42081142/semantic-ui-react-how-to-use-link-components-in-menu-list-elements
+https://react.semantic-ui.com/
