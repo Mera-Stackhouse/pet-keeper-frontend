@@ -4,11 +4,14 @@ import Banner from './Banner'
 import LandingPageForms from './LandingPageForms'
 import LoggedIn from '../containers/LoggedIn'
 
+import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
+
 class LandingPage extends React.Component {
   constructor() {
     super()
     this.state = {
-      error: ''
+      error: '',
+      isLoggedIn: localStorage.isLoggedIn
     }
   }
 
@@ -37,12 +40,22 @@ class LandingPage extends React.Component {
         })
       } else {
         localStorage.setItem('token', resp.jwt)
+        localStorage.setItem('isLoggedIn', true)
         this.setState({
-          error: ''
+          error: '',
+          isLoggedIn: true
         })
       }
     })
 
+  }
+
+  toggleLogin = () => {
+    localStorage.setItem('isLoggedIn', false)
+    this.setState({
+      isLoggedIn: false
+    })
+    return <Redirect to='/login' />
   }
 
 
@@ -51,8 +64,8 @@ class LandingPage extends React.Component {
       <Banner />
       <br/>
       <br/>
-      {localStorage.token?
-      <LoggedIn />
+      {(localStorage.token && this.state.isLoggedIn) ?
+      <LoggedIn toggleLogin={this.toggleLogin}/>
       :
       <LandingPageForms handleLogin={this.handleLogin} error={this.state.error}/>
       }
