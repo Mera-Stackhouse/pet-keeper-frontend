@@ -77,11 +77,6 @@ class Pet extends React.Component {
 
 
 
-
-
-
-
-
   render() {
     return (
       <Card>
@@ -97,9 +92,7 @@ class Pet extends React.Component {
                 <p>{this.state.pet.breed}</p>
                 <p>{this.state.pet.gender}</p>
                 <p>Birthday: {this.state.pet.birthdate}</p>
-                <p>Food:</p>
                 <p>Habits: {this.state.pet.habits}</p>
-                <p>Medications:</p>
               </div>
               : null}
               {this.state.showEditForm ?
